@@ -34,8 +34,6 @@ VIN: ${data.vin || 'Not provided'}`;
     }
     
     // Serve your homepage
-    return new Response(HTML, { 
+        return new Response('<h1>Test</h1><p>If you see this, Worker works</p>', { 
       headers: { 'content-type': 'text/html' } 
     });
-  }
-}
