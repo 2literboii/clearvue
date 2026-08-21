@@ -1,107 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClearVue Auto Glass | Windshield Repair & Replacement</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-      line-height: 1.6; 
-      color: #333; 
-      background: #f8f9fa;
-    }
-    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-    header { 
-      background: #1a3a5f; 
-      color: white; 
-      padding: 30px 20px; 
-      text-align: center; 
-      margin-bottom: 30px;
-    }
-    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; opacity: 0.9; }
-    .card { 
-      background: white; 
-      border-radius: 8px; 
-      padding: 30px; 
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-      margin-bottom: 30px;
-    }
-    h2 { color: #1a3a5f; margin-bottom: 20px; font-size: 1.8rem; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .form-group { margin-bottom: 15px; }
-    .form-group.full { grid-column: 1 / -1; }
-    label { display: block; margin-bottom: 5px; font-weight: 600; color: #555; }
-    input, select { 
-      width: 100%; 
-      padding: 12px; 
-      border: 2px solid #ddd; 
-      border-radius: 6px; 
-      font-size: 16px; 
-      transition: border-color 0.3s;
-    }
-    input:focus, select:focus { outline: none; border-color: #1a3a5f; }
-    button { 
-      background: #1a3a5f; 
-      color: white; 
-      padding: 15px 30px; 
-      border: none; 
-      border-radius: 6px; 
-      font-size: 18px; 
-      font-weight: 600; 
-      cursor: pointer; 
-      width: 100%;
-      transition: background 0.3s;
-    }
-    button:hover { background: #2c5282; }
-    button:disabled { background: #999; cursor: not-allowed; }
-    #status { 
-      margin-top: 20px; 
-      padding: 15px; 
-      border-radius: 6px; 
-      text-align: center; 
-      font-weight: 600;
-      display: none;
-    }
-    .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-    .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-    .feature { text-align: center; padding: 20px; }
-    .feature h3 { color: #1a3a5f; margin-bottom: 10px; }
-    footer { text-align: center; padding: 30px 20px; color: #666; }
-    @media (max-width: 600px) {
-      .form-grid { grid-template-columns: 1fr; }
-      header h1 { font-size: 2rem; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>ClearVue Auto Glass</h1>
-    <p>Fast, Professional Windshield Repair & Replacement in Vacaville, CA</p>
-  </header>
+</html>`;
 
-  <div class="container">
-    <div class="card">
-      <h2>Get Your Free Quote</h2>
-      <p style="margin-bottom: 20px;">Fill out the form below and we'll text you a quote ASAP. Same-day service available.</p>
-      
-      <form id="quoteForm">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required>
-          </div>
-          <div class="form-group">
-            <label for="year">Vehicle Year *</label>
-            <select id="year" name="year" required>
-              <option value="">Select Year</option>
-            </select>
-          </div>
-          <div
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    
+    if (url.pathname === '/api/quote' && request.method === 'POST') {
+      try {
+        const data = await request.json();
+        const text = `New Quote Request
+Name: ${data.name}
+Phone: ${data.phone} 
+Vehicle: ${data.year} ${data.make} ${data.model}
+VIN: ${data.vin || 'Not provided'}`;
+        
+        await fetch('https://api.mailchannels.net/tx/v1/send', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            personalizations: [{ to: [{ email: 'clearvueauto@yahoo.com' }] }],
+            from: { email: 'sender@mailchannels.net', name: 'ClearVue Auto' },
+            subject: `Quote: ${data.year} ${data.make} ${data.model}`,
+            content: [{ type: 'text/plain', value: text }]
+          })
+        });
+        
+        return Response.json({ success: true });
+      } catch (e) {
+        return Response.json({ success: false, error: e.message }, { status: 500 });
+      }
+    }
+    
+    if (url.pathname === '/' || url.pathname === '/index.html') {
+      return new Response(HTML, { headers: { 'content-type': 'text/html' } });
+    }
+    
+    return new Response('Not found', { status: 404 });
+  }
+}  No chip repair anywhere
+  Single socials row Facebook 61593201852221 Instagram clearvueautoglass
+
+  CLOUDFLARE PAGES READY - EMAIL ONLY
+  -----------------------------------
+  File: functions/api/quote.js
+  - POST /api/quote JSON
+  - MailChannels email to clearvueauto@yahoo.com from noreply@clearvueauto.com
+  - Subject: New Quote Request - Clear Vue AutoGlass
+  - Body: Name, Phone, Email, Vehicle, Service, City, Date, Message
+  - No Twilio, No SMS env vars
+
+  _headers and _redirects:
+  - _headers and _redirects files - copy to dist/ or project root /public/ for Cloudflare Pages
+
+  HOW TO DEPLOY:
+  Wrangler: npm run build && wrangler pages deploy dist --project-name=clearvueautoglass
+  GitHub: Push repo with functions/api/quote.js -> Cloudflare Pages auto-detects /api/quote
+
+  CLOUDFLARE EMAIL SETUP ONLY:
+  - No API key needed - MailChannels free on Cloudflare Pages
+  - Add SPF TXT: v=spf1 include:relay.mailchannels.net ~all
+  - From noreply@clearvueauto.com -> To clearvueauto@yahoo.com
+  - Submit form live -> check clearvueauto@yahoo.com inbox + spam
+  - Logs: Dashboard > Pages > Functions > View logs, 202 = success
+
+  FRONTEND:
+  - fetch('/api/quote') POST JSON
+  - On success show "Quote Request Sent! We'll contact you within 1 hour"
+  - Clean form no notification note
+-->
+          `}})]})}M9.createRoot(document.getElementById("root")).render(A(W9.default.StrictMode,{children:A(fl,{})}));
+</script>
+  <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
+  
+</body>
+</html>
