@@ -1,108 +1,23 @@
-const HTML = atob(`const HTML = atob(const HTML = atob(Y29uc3QgSFRNTCA9IGA8IURPQ1RZUEUgaHRtbD4KCjwvaHRtbD5gOwoKZXhwb3J0IGRlZmF1bHQgewogIGFzeW5jIGZldGNoKHJlcXVlc3QsIGVudikgewogICAgY29uc3QgdXJsID0gbmV3IFVSTChyZXF1ZXN0LnVybCk7CiAgICAKICAgIGlmICh1cmwucGF0aG5hbWUgPT09ICcvYXBpL3F1b3RlJyAmJiByZXF1ZXN0Lm1ldGhvZCA9PT0gJ1BPU1QnKSB7CiAgICAgIHRyeSB7CiAgICAgICAgY29uc3QgZGF0YSA9IGF3YWl0IHJlcXVlc3QuanNvbigpOwogICAgICAgIGNvbnN0IHRleHQgPSBgTmV3IFF1b3RlIFJlcXVlc3QKTmFtZTogJHtkYXRhLm5hbWV9ClBob25lOiAke2RhdGEucGhvbmV9IApWZWhpY2xlOiAke2RhdGEueWVhcn0gJHtkYXRhLm1ha2V9ICR7ZGF0YS5tb2RlbH0KVklOOiAke2RhdGEudmluIHx8ICdOb3QgcHJvdmlkZWQnfWA7CiAgICAgICAgCiAgICAgICAgYXdhaXQgZmV0Y2goJ2h0dHBzOi8vYXBpLm1haWxjaGFubmVscy5uZXQvdHgvdjEvc2VuZCcsIHsKICAgICAgICAgIG1ldGhvZDogJ1BPU1QnLAogICAgICAgICAgaGVhZGVyczogeyAnY29udGVudC10eXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nIH0sCiAgICAgICAgICBib2R5OiBKU09OLnN0cmluZ2lmeSh7CiAgICAgICAgICAgIHBlcnNvbmFsaXphdGlvbnM6IFt7IHRvOiBbeyBlbWFpbDogJ2NsZWFydnVlYXV0b0B5YWhvby5jb20nIH1dIH1dLAogICAgICAgICAgICBmcm9tOiB7IGVtYWlsOiAnc2VuZGVyQG1haWxjaGFubmVscy5uZXQnLCBuYW1lOiAnQ2xlYXJWdWUgQXV0bycgfSwKICAgICAgICAgICAgc3ViamVjdDogYFF1b3RlOiAke2RhdGEueWVhcn0gJHtkYXRhLm1ha2V9ICR7ZGF0YS5tb2RlbH1gLAogICAgICAgICAgICBjb250ZW50OiBbeyB0eXBlOiAndGV4dC9wbGFpbicsIHZhbHVlOiB0ZXh0IH1dCiAgICAgICAgICB9KQogICAgICAgIH0pOwogICAgICAgIAogICAgICAgIHJldHVybiBSZXNwb25zZS5qc29uKHsgc3VjY2VzczogdHJ1ZSB9KTsKICAgICAgfSBjYXRjaCAoZSkgewogICAgICAgIHJldHVybiBSZXNwb25zZS5qc29uKHsgc3VjY2VzczogZmFsc2UsIGVycm9yOiBlLm1lc3NhZ2UgfSwgeyBzdGF0dXM6IDUwMCB9KTsKICAgICAgfQogICAgfQogICAgCiAgICBpZiAodXJsLnBhdGhuYW1lID09PSAnLycgfHwgdXJsLnBhdGhuYW1lID09PSAnL2luZGV4Lmh0bWwnKSB7CiAgICAgIHJldHVybiBuZXcgUmVzcG9uc2UoSFRNTCwgeyBoZWFkZXJzOiB7ICdjb250ZW50LXR5cGUnOiAndGV4dC9odG1sJyB9IH0pOwogICAgfQogICAgCiAgICByZXR1cm4gbmV3IFJlc3BvbnNlKCdOb3QgZm91bmQnLCB7IHN0YXR1czogNDA0IH0pOwogIH0KfSAgTm8gY2hpcCByZXBhaXIgYW55d2hlcmUKICBTaW5nbGUgc29jaWFscyByb3cgRmFjZWJvb2sgNjE1OTMyMDE4NTIyMjEgSW5zdGFncmFtIGNsZWFydnVlYXV0b2dsYXNzCgogIENMT1VERkxBUkUgUEFHRVMgUkVBRFkgLSBFTUFJTCBPTkxZCiAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KICBGaWxlOiBmdW5jdGlvbnMvYXBpL3F1b3RlLmpzCiAgLSBQT1NUIC9hcGkvcXVvdGUgSlNPTgogIC0gTWFpbENoYW5uZWxzIGVtYWlsIHRvIGNsZWFydnVlYXV0b0B5YWhvby5jb20gZnJvbSBub3JlcGx5QGNsZWFydnVlYXV0by5jb20KICAtIFN1YmplY3Q6IE5ldyBRdW90ZSBSZXF1ZXN0IC0gQ2xlYXIgVnVlIEF1dG9HbGFzcwogIC0gQm9keTogTmFtZSwgUGhvbmUsIEVtYWlsLCBWZWhpY2xlLCBTZXJ2aWNlLCBDaXR5LCBEYXRlLCBNZXNzYWdlCiAgLSBObyBUd2lsaW8sIE5vIFNNUyBlbnYgdmFycwoKICBfaGVhZGVycyBhbmQgX3JlZGlyZWN0czoKICAtIF9oZWFkZXJzIGFuZCBfcmVkaXJlY3RzIGZpbGVzIC0gY29weSB0byBkaXN0LyBvciBwcm9qZWN0IHJvb3QgL3B1YmxpYy8gZm9yIENsb3VkZmxhcmUgUGFnZXMKCiAgSE9XIFRPIERFUExPWToKICBXcmFuZ2xlcjogbnBtIHJ1biBidWlsZCAmJiB3cmFuZ2xlciBwYWdlcyBkZXBsb3kgZGlzdCAtLXByb2plY3QtbmFtZT1jbGVhcnZ1ZWF1dG9nbGFzcwogIEdpdEh1YjogUHVzaCByZXBvIHdpdGggZnVuY3Rpb25zL2FwaS9xdW90ZS5qcyAtPiBDbG91ZGZsYXJlIFBhZ2VzIGF1dG8tZGV0ZWN0cyAvYXBpL3F1b3RlCgogIENMT1VERkxBUkUgRU1BSUwgU0VUVVAgT05MWToKICAtIE5vIEFQSSBrZXkgbmVlZGVkIC0gTWFpbENoYW5uZWxzIGZyZWUgb24gQ2xvdWRmbGFyZSBQYWdlcwogIC0gQWRkIFNQRiBUWFQ6IHY9c3BmMSBpbmNsdWRlOnJlbGF5Lm1haWxjaGFubmVscy5uZXQgfmFsbAogIC0gRnJvbSBub3JlcGx5QGNsZWFydnVlYXV0by5jb20gLT4gVG8gY2xlYXJ2dWVhdXRvQHlhaG9vLmNvbQogIC0gU3VibWl0IGZvcm0gbGl2ZSAtPiBjaGVjayBjbGVhcnZ1ZWF1dG9AeWFob28uY29tIGluYm94ICsgc3BhbQogIC0gTG9nczogRGFzaGJvYXJkID4gUGFnZXMgPiBGdW5jdGlvbnMgPiBWaWV3IGxvZ3MsIDIwMiA9IHN1Y2Nlc3MKCiAgRlJPTlRFTkQ6CiAgLSBmZXRjaCgnL2FwaS9xdW90ZScpIFBPU1QgSlNPTgogIC0gT24gc3VjY2VzcyBzaG93ICJRdW90ZSBSZXF1ZXN0IFNlbnQhIFdlJ2xsIGNvbnRhY3QgeW91IHdpdGhpbiAxIGhvdXIiCiAgLSBDbGVhbiBmb3JtIG5vIG5vdGlmaWNhdGlvbiBub3RlCi0tPgogICAgICAgICAgYH19KV19KX1NOS5jcmVhdGVSb290KGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCJyb290IikpLnJlbmRlcihBKFc5LmRlZmF1bHQuU3RyaWN0TW9kZSx7Y2hpbGRyZW46QShmbCx7fSl9KSk7Cjwvc2NyaXB0PgogIDxzY3JpcHQ+KGZ1bmN0aW9uKCl7ZnVuY3Rpb24gbShhKXt2YXIgaD1hLmdldEF0dHJpYnV0ZSgiaHJlZiIpO2lmKCFoKXJldHVybjt0cnl7dmFyIHU9bmV3IFVSTChoLGRvY3VtZW50LmJhc2VVUkkpO2lmKCh1LnByb3RvY29sPT09Imh0dHA6Inx8dS5wcm90b2NvbD09PSJodHRwczoiKSYmdS5ob3N0IT09bG9jYXRpb24uaG9zdCl7YS50YXJnZXQ9Il9ibGFuayI7YS5yZWw9Im5vb3BlbmVyIG5vcmVmZXJyZXIiO319Y2F0Y2goZSl7fX1mdW5jdGlvbiBzKCl7ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgiYVtocmVmXSIpLmZvckVhY2gobSk7fWlmKGRvY3VtZW50LnJlYWR5U3RhdGUhPT0ibG9hZGluZyIpe3MoKTt9ZWxzZXtkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCJET01Db250ZW50TG9hZGVkIixzKTt9ZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcigiY2xpY2siLGZ1bmN0aW9uKGUpe3ZhciBhPWUudGFyZ2V0JiZlLnRhcmdldC5jbG9zZXN0JiZlLnRhcmdldC5jbG9zZXN0KCJhW2hyZWZdIik7aWYoYSl7bShhKTt9fSx0cnVlKTt9KSgpOzwvc2NyaXB0PgogIAo8L2JvZHk+CjwvaHRtbD4=);
-
 export default {
   async fetch(request) {
     const url = new URL(request.url);
     
     if (url.pathname === '/api/quote' && request.method === 'POST') {
-      try {
-        const data = await request.json();
-        const text = `New Quote Request
-Name: ${data.name}
-Phone: ${data.phone} 
-Vehicle: ${data.year} ${data.make} ${data.model}
-VIN: ${data.vin || 'Not provided'}`;
-        
-        await fetch('https://api.mailchannels.net/tx/v1/send', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            personalizations: [{ to: [{ email: 'clearvueauto@yahoo.com' }] }],
-            from: { email: 'sender@mailchannels.net', name: 'ClearVue Auto' },
-            subject: `Quote: ${data.year} ${data.make} ${data.model}`,
-            content: [{ type: 'text/plain', value: text }]
-          })
-        });
-        
-        return Response.json({ success: true });
-      } catch (e) {
-        return Response.json({ success: false, error: e.message }, { status: 500 });
-      }
+      const data = await request.json();
+      await fetch('https://api.mailchannels.net/tx/v1/send', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          personalizations: [{ to: [{ email: 'clearvueauto@yahoo.com' }] }],
+          from: { email: 'sender@mailchannels.net', name: 'ClearVue Auto' },
+          subject: 'New Quote Request',
+          content: [{ type: 'text/plain', value: JSON.stringify(data, null, 2) }]
+        })
+      });
+      return Response.json({ success: true });
     }
     
-    return new Response(HTML, { 
-      headers: { 'content-type': 'text/html' } 
-    });
-  }
-});
-
-export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-    
-    if (url.pathname === '/api/quote' && request.method === 'POST') {
-      try {
-        const data = await request.json();
-        const text = `New Quote Request
-Name: ${data.name}
-Phone: ${data.phone} 
-Vehicle: ${data.year} ${data.make} ${data.model}
-VIN: ${data.vin || 'Not provided'}`;
-        
-        await fetch('https://api.mailchannels.net/tx/v1/send', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            personalizations: [{ to: [{ email: 'clearvueauto@yahoo.com' }] }],
-            from: { email: 'sender@mailchannels.net', name: 'ClearVue Auto' },
-            subject: `Quote: ${data.year} ${data.make} ${data.model}`,
-            content: [{ type: 'text/plain', value: text }]
-          })
-        });
-        
-        return Response.json({ success: true });
-      } catch (e) {
-        return Response.json({ success: false, error: e.message }, { status: 500 });
-      }
-    }
-    
-    return new Response(HTML, { 
-      headers: { 'content-type': 'text/html' } 
-    });
-  }
-}`);
-
-export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-    
-    if (url.pathname === '/api/quote' && request.method === 'POST') {
-      try {
-        const data = await request.json();
-        const text = `New Quote Request
-Name: ${data.name}
-Phone: ${data.phone} 
-Vehicle: ${data.year} ${data.make} ${data.model}
-VIN: ${data.vin || 'Not provided'}`;
-        
-        await fetch('https://api.mailchannels.net/tx/v1/send', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            personalizations: [{ to: [{ email: 'clearvueauto@yahoo.com' }] }],
-            from: { email: 'sender@mailchannels.net', name: 'ClearVue Auto' },
-            subject: `Quote: ${data.year} ${data.make} ${data.model}`,
-            content: [{ type: 'text/plain', value: text }]
-          })
-        });
-        
-        return Response.json({ success: true });
-      } catch (e) {
-        return Response.json({ success: false, error: e.message }, { status: 500 });
-      }
-    }
-    
-    return new Response(HTML, { 
+    return new Response('<!DOCTYPE html><html><head><title>ClearVue Auto</title></head><body><h1>Site is up</h1><p>API works at /api/quote</p></body></html>', { 
       headers: { 'content-type': 'text/html' } 
     });
   }
