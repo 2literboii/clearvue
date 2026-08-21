@@ -1,4 +1,4 @@
-const HTML = `<!DOCTYPE html>
+const HTML = String.raw`<!DOCTYPE html>
 <!-- PASTE YOUR ENTIRE index.html CONTENT HERE -->
 `;
 
@@ -6,7 +6,6 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     
-    // Handle quote form POST
     if (url.pathname === '/api/quote' && request.method === 'POST') {
       try {
         const data = await request.json();
@@ -33,7 +32,8 @@ VIN: ${data.vin || 'Not provided'}`;
       }
     }
     
-    // Serve your homepage
-        return new Response('<h1>Test</h1><p>If you see this, Worker works</p>', { 
+    return new Response(HTML, { 
       headers: { 'content-type': 'text/html' } 
     });
+  }
+}
