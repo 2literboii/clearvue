@@ -1,9 +1,11 @@
 const HTML = String.raw`
-PASTE YOUR ENTIRE index.html FILE HERE
-`;
+const HTML = `<!DOCTYPE html>
+<html>
+<!-- PASTE YOUR ENTIRE index.html CONTENT HERE -->
+</html>`;
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
     
     if (url.pathname === '/api/quote' && request.method === 'POST') {
@@ -32,8 +34,46 @@ VIN: ${data.vin || 'Not provided'}`;
       }
     }
     
-    return new Response(HTML, { 
-      headers: { 'content-type': 'text/html' } 
-    });
+    if (url.pathname === '/' || url.pathname === '/index.html') {
+      return new Response(HTML, { headers: { 'content-type': 'text/html' } });
+    }
+    
+    return new Response('Not found', { status: 404 });
   }
-}
+}  No chip repair anywhere
+  Single socials row Facebook 61593201852221 Instagram clearvueautoglass
+
+  CLOUDFLARE PAGES READY - EMAIL ONLY
+  -----------------------------------
+  File: functions/api/quote.js
+  - POST /api/quote JSON
+  - MailChannels email to clearvueauto@yahoo.com from noreply@clearvueauto.com
+  - Subject: New Quote Request - Clear Vue AutoGlass
+  - Body: Name, Phone, Email, Vehicle, Service, City, Date, Message
+  - No Twilio, No SMS env vars
+
+  _headers and _redirects:
+  - _headers and _redirects files - copy to dist/ or project root /public/ for Cloudflare Pages
+
+  HOW TO DEPLOY:
+  Wrangler: npm run build && wrangler pages deploy dist --project-name=clearvueautoglass
+  GitHub: Push repo with functions/api/quote.js -> Cloudflare Pages auto-detects /api/quote
+
+  CLOUDFLARE EMAIL SETUP ONLY:
+  - No API key needed - MailChannels free on Cloudflare Pages
+  - Add SPF TXT: v=spf1 include:relay.mailchannels.net ~all
+  - From noreply@clearvueauto.com -> To clearvueauto@yahoo.com
+  - Submit form live -> check clearvueauto@yahoo.com inbox + spam
+  - Logs: Dashboard > Pages > Functions > View logs, 202 = success
+
+  FRONTEND:
+  - fetch('/api/quote') POST JSON
+  - On success show "Quote Request Sent! We'll contact you within 1 hour"
+  - Clean form no notification note
+-->
+          `}})]})}M9.createRoot(document.getElementById("root")).render(A(W9.default.StrictMode,{children:A(fl,{})}));
+</script>
+  <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
+  
+</body>
+</html>
